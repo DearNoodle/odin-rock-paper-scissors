@@ -2,8 +2,10 @@ function getComputerChoice() {
     return CHOICE[Math.floor(Math.random()*CHOICE.length)];
 }
 
-function getPlayerChoice(input) {
-    return input.toLowerCase();
+function Game(choice) {
+    computerSelection = getComputerChoice();
+    playerSelection = choice;
+    playRound(playerSelection,computerSelection);
 }
 
 function playRound(player,computer) {
@@ -33,36 +35,37 @@ function playRound(player,computer) {
             computerScore++;
             roundResult = "you lose";
         }  
-    }  else {
-        alert("wrong input");
-        restartRound = true;
     }
-    if (!restartRound) {
-        alert(`Computer (${computer}): ${roundResult}
-Player Score:${playerScore}     Computer Score: ${computerScore}`);
+    if (playerScore === 5) {
+        panelText.innerHTML = `YOU WIN`;
+        restartGame();
+    } else if (computerScore === 5) {
+        panelText.innerHTML = `YOU LOSE`;
+        restartGame();
+    } else {
+        panelText.innerHTML = `Computer (${computer}): ${roundResult}<br>Player Score:${playerScore}      Computer Score: ${computerScore}`;
     }
 }
 
-function Game(rounds) {
-    while (gameRound <= rounds) {
-        computerSelection = getComputerChoice();
-        playerSelection = getPlayerChoice(prompt(`Round ${gameRound}: Rock/Paper/Scissors`));
-        playRound(playerSelection,computerSelection);
-        if (restartRound === true) {
-            restartRound = false;
-            continue;
-        }
-        gameRound++;
-    }
+function restartGame() {
+    playerScore = 0;
+    computerScore = 0;
 }
 
 const CHOICE = ["rock","paper","scissors"];
 let playerSelection;
 let computerSelection;
-let gameRound = 1;
 let playerScore = 0;
 let computerScore = 0;
 let roundResult;
-let restartRound = false;
 
-Game(5);
+const rockBtn = document.querySelector('.rock-btn');
+const paperBtn = document.querySelector('.paper-btn');
+const scissorsBtn = document.querySelector('.scissors-btn');
+const panelText = document.querySelector(".panel-text");
+
+rockBtn.addEventListener("click", () => Game("rock"));
+paperBtn.addEventListener("click", () => Game("paper"));
+scissorsBtn.addEventListener("click", () => Game("scissors"));
+
+

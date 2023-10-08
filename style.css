@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 99vh;
+    gap: 100px;
+}
+
+.btn-container {
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;    
+}
+
+.display-panel {
+    background-color: grey;
+}
+
+.btn {
+    border-radius: 50%;
+}
+
+.btn img {
+    border-radius: 50%;
+    width: 20vw;
+    height: auto;
+}
+
+.panel-text {
+    text-align: center;
+    font-size: 150px;
+    width: 100vw;
+}
+
+.gif {
+    height: 40vw;
+    top: 0;
+}
