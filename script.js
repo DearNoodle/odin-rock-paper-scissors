@@ -67,5 +67,3 @@ const panelText = document.querySelector(".panel-text");
 rockBtn.addEventListener("click", () => Game("rock"));
 paperBtn.addEventListener("click", () => Game("paper"));
 scissorsBtn.addEventListener("click", () => Game("scissors"));
-
-
