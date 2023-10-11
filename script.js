@@ -43,7 +43,7 @@ function playRound(player,computer) {
         panelText.innerHTML = `YOU LOSE`;
         restartGame();
     } else {
-        panelText.innerHTML = `Computer (${computer}): ${roundResult}<br>Player Score:${playerScore}      Computer Score: ${computerScore}`;
+        panelText.innerHTML = `Computer (${computer}): ${roundResult}<br>Player Score:${playerScore}<br>Computer Score: ${computerScore}`;
     }
 }
 
